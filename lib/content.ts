@@ -13,7 +13,7 @@ export const site = {
   fullName: "MiTran Global Positivity Hub",
   by: "MiTran Global",
   /** Checkout link used by every Register / Enrol button. */
-  registerUrl: "https://hub.mitranglobal.com/web/checkout/6ace0ed5f506917ea09e28b5",
+  registerUrl: "https://hub.mitranglobal.com/web/checkout/6ace0ed5f506917ea09e28b5?purchaseNow=true&couponcode=MGBRIGHTFRI",
   /**
    * When true, Register / Enrol buttons and the VSL first open the short
    * sign-up popup (details go to ClarityConvert), then continue to checkout or
@@ -54,7 +54,7 @@ export const hero = {
     name: "MiTran Global’s Positivity Hub",
     after: " – a personalised, one-to-one guided programme that helps teenagers build a positive mindset, better learning habits and essential life skills.",
   },
-  image: { src: "/images/outcome-6.webp", alt: "A mother and father sitting with their teenage daughter, looking through her notebook together" },
+  image: { src: "/images/outcome-3.webp", alt: "A calm, smiling student writing his exam paper in a classroom" },
   benefitsTitle: "A Personalised, One-to-One Programme",
   benefits: [
     "Build confidence and a positive mindset",
@@ -114,7 +114,6 @@ export const solution = {
     { title: "Accelerated Learning Methodologies", body: "Improve focus, memory and effective study habits." },
     { title: "I Love Exams", body: "Develop better revision strategies, time management and exam confidence." },
   ],
-  note: "You don’t have to wait for your child to struggle before investing in their well-being. Whether your child needs support with confidence, exam pressure, focus or everyday challenges, Positivity Hub offers a personalised journey to help you understand your child better and support their growth.",
   cta: "Explore the Positivity Hub programme",
 };
 
@@ -213,7 +212,7 @@ export const included: { eyebrow: string; title: string; items: IncludedItem[]; 
     { title: "101 Secrets of Positive Parenting", body: "Audio lessons to help parents support their teenagers.", bonus: true },
     { title: "Power Up Live Sessions", body: "Interactive small-group sessions focused on real-life challenges and practical solutions.", bonus: true },
   ],
-  cta: `Get the complete programme – ${formatINR(site.price)}`,
+  cta: "Get the complete programme",
 };
 
 /* ─────────────────────────── 7. The coach ─────────────────────────── */
@@ -337,8 +336,8 @@ export const finalCta = {
   title: "Help Your Teen Grow Into a Confident, Independent Individual.",
   lead: "Give them the tools, guidance and support to navigate teenage life with confidence.",
   sub: "Start Your Teenager’s Positivity Hub Journey Today.",
-  priceLabel: "Special Programme Price:",
-  cta: `Enrol your teenager – ${formatINR(site.price)}`,
+  priceLabel: "Special Programme Price",
+  cta: "Enrol your teenager",
   tagline: "MiTran Global Positivity Hub – Building positive mindsets and essential life skills for life.",
 };
 

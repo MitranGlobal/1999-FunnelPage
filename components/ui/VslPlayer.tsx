@@ -67,7 +67,7 @@ export default function VslPlayer({ backdrop, id }: { backdrop?: ReactNode; id?:
 
   return (
     <div>
-      <div ref={frame} id={id} className="relative aspect-video w-full scroll-mt-24 overflow-hidden rounded-xl bg-night shadow-soft ring-1 ring-night/10">
+      <div ref={frame} id={id} className="relative aspect-video w-full overflow-hidden rounded-xl bg-night shadow-soft ring-1 ring-night/10">
         {backdrop}
         <video
           ref={video}

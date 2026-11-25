@@ -1,7 +1,6 @@
 import Footer from "@/components/Footer";
 import LeadGate from "@/components/LeadGate";
 import Lightbox from "@/components/Lightbox";
-import Nav from "@/components/Nav";
 import StickyBar from "@/components/StickyBar";
 import Challenge from "@/components/sections/Challenge";
 import Coach from "@/components/sections/Coach";
@@ -20,7 +19,6 @@ export default function Home() {
   return (
     <>
       <div id="site">
-        <Nav />
         <main>
           <Hero />
           <Challenge />

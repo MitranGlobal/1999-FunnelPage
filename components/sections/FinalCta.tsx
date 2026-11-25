@@ -1,6 +1,7 @@
 import Cta from "@/components/ui/Cta";
 import Reveal from "@/components/ui/Reveal";
-import { finalCta, formatINR, saving, site } from "@/lib/content";
+import PriceTag from "@/components/ui/PriceTag";
+import { finalCta } from "@/lib/content";
 
 /** Section 10 – Final CTA. */
 export default function FinalCta() {
@@ -14,12 +15,8 @@ export default function FinalCta() {
 
         <div className="mt-10 border-t border-night-line pt-10">
           <p className="font-display text-display-md text-gold">{finalCta.sub}</p>
-          <p className="mt-4 text-lg font-semibold">
-            {finalCta.priceLabel} <span className="text-gold">{formatINR(site.price)}</span>
-          </p>
-          <p className="mt-1 text-ivory/70">
-            <s>{formatINR(site.was)}</s> | Save {formatINR(saving)}
-          </p>
+          <p className="mt-5 text-sm font-bold uppercase tracking-[0.14em] text-ivory/70">{finalCta.priceLabel}</p>
+          <PriceTag size="lg" tone="light" save className="mt-2 justify-center" />
           <Cta label={finalCta.cta} align="center" className="mt-7" note="One-time payment · Sessions conducted online" noteTone="light" />
         </div>
 

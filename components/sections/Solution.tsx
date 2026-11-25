@@ -24,9 +24,8 @@ export default function Solution() {
           ))}
         </Reveal>
 
-        <Reveal className="mt-8 grid gap-8 border-t border-paper-line pt-8 lg:grid-cols-[1.4fr_1fr] lg:items-end">
-          <p className="max-w-prose text-body-lg text-ink-soft">{solution.note}</p>
-          <Cta label={solution.cta} href="#included" className="lg:items-end" />
+        <Reveal className="mt-8">
+          <Cta label={solution.cta} href="#included" />
         </Reveal>
       </div>
     </section>

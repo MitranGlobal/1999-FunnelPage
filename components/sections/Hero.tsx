@@ -2,14 +2,18 @@ import Image from "next/image";
 import Cta from "@/components/ui/Cta";
 import Icon from "@/components/ui/Icon";
 import TickList from "@/components/ui/TickList";
+import Logo from "@/components/ui/Logo";
 import { hero } from "@/lib/content";
 
 /** Section 1 – Hero. Layout follows the reference image in the instructions PDF. */
 export default function Hero() {
   return (
-    <section id="top" aria-labelledby="hero-title" className="relative bg-night pb-14 pt-24 text-ivory sm:pb-20 sm:pt-32">
+    <section id="top" aria-labelledby="hero-title" className="relative bg-night pb-14 pt-6 text-ivory sm:pb-20 sm:pt-8">
       <div className="container">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="flex justify-center">
+          <Logo onDark className="h-10 w-auto sm:h-12" />
+        </div>
+        <div className="mx-auto mt-8 max-w-4xl text-center sm:mt-10">
           <p className="inline-block rounded-full border border-gold/50 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-gold sm:text-sm">{hero.audience}</p>
           <h1 id="hero-title" className="mt-6 font-display text-display-xl text-ivory">
             {hero.headline} <span className="text-gold">{hero.highlight}</span>
@@ -24,7 +28,7 @@ export default function Hero() {
 
         <div className="mt-10 grid items-stretch gap-6 sm:mt-12 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
           <div className="relative min-h-[260px] overflow-hidden rounded-xl sm:min-h-[340px]">
-            <Image src={hero.image.src} alt={hero.image.alt} fill priority sizes="(min-width: 1024px) 560px, 100vw" className="object-cover" />
+            <Image src={hero.image.src} alt={hero.image.alt} fill priority sizes="(min-width: 1024px) 560px, 100vw" className="object-cover object-[50%_30%]" />
           </div>
 
           <div className="flex flex-col rounded-xl border border-night-line bg-night-soft p-6 sm:p-8">
