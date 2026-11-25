@@ -38,9 +38,9 @@ All copy, prices, links and videos live in **`lib/content.ts`**, in page order.
 
 ### Student videos
 
-The testimonial videos play from Google Drive inside the popup player (`driveId` = the id in the Drive link).
-The Drive files must stay shared as **Anyone with the link → Viewer**.
-For faster, more reliable playback, upload them to Cloudinary (like the VSL) and put the `.mp4` URL in each student's `src`; `src` is used instead of Drive when set.
+All eight testimonial videos live in the Cloudinary folder **Student Testimonials** (cloud `twteccae`).
+The page plays a 720p H.264 copy of each (`c_limit,w_1280,vc_h264,q_auto`), 3–6 MB per video, which plays in every browser.
+To add a video: upload it to that folder, then add an entry with its `src` / `poster` URLs in `experiences` (same pattern as the others).
 
 ## Sign-ups
 

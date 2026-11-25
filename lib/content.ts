@@ -129,9 +129,8 @@ export const experiences = {
    * Student testimonial videos, played in the popup player.
    * `src` (+ `poster`): the video on Cloudinary, folder "Student Testimonials",
    *   delivered as a 720p H.264 copy so it plays in every browser.
-   * `driveId`: the Google Drive original, used only when `src` is empty
-   *   (files over Cloudinary's 100 MB free-plan limit). Keep those Drive files
-   *   shared as "Anyone with the link – Viewer".
+   * `driveId`: the Google Drive copy, only used as a fallback if `src` is
+   *   left empty.
    */
   students: [
     {
@@ -147,23 +146,28 @@ export const experiences = {
       grade: "7th Grade",
       caption: "Mastered time management and the confidence to handle exam pressure.",
       driveId: "10nAMQwABs6OLEhLBKUxUgqb7ji9c_ETd",
-      src: "", poster: "",
+      src: "https://res.cloudinary.com/twteccae/video/upload/c_limit,w_1280,vc_h264,q_auto/v1795590199/satvik.mp4",
+      poster: "https://res.cloudinary.com/twteccae/video/upload/c_limit,so_3,w_800/q_auto/v1795590199/satvik.jpg",
     },
     {
       name: "Senthilvel Vinayak",
       grade: "10th Grade",
       caption: "Developed better study habits and the confidence to stay consistent.",
       driveId: "1RprF7p6v4P40IG7GKaUV2rsqV09KZgi5",
-      src: "", poster: "",
+      src: "https://res.cloudinary.com/twteccae/video/upload/c_limit,w_1280,vc_h264,q_auto/v1795590216/senthilvel-vinayak.mp4",
+      poster: "https://res.cloudinary.com/twteccae/video/upload/c_limit,so_3,w_800/q_auto/v1795590216/senthilvel-vinayak.jpg",
     },
   ],
   moreTitle: "More student stories",
   more: [
-    { name: "Amogh Chivukula", grade: "8th Grade", caption: "Built stronger concepts and the confidence to tackle challenging questions.", driveId: "129JGPWicsYnQtDpwBXzx4d2colFpnN8u", src: "", poster: "" },
-    { name: "Tharunikaa Srinath", grade: "7th Grade", caption: "Gained a clear study strategy and the confidence to walk into exams prepared.", driveId: "1bUy5QALDCsyimWUlRLNhyI9PBskAKJlC", src: "", poster: "" },
+    { name: "Amogh Chivukula", grade: "8th Grade", caption: "Built stronger concepts and the confidence to tackle challenging questions.", driveId: "129JGPWicsYnQtDpwBXzx4d2colFpnN8u", src: "https://res.cloudinary.com/twteccae/video/upload/c_limit,w_1280,vc_h264,q_auto/v1795590234/amogh-chivukula.mp4",
+      poster: "https://res.cloudinary.com/twteccae/video/upload/c_limit,so_3,w_800/q_auto/v1795590234/amogh-chivukula.jpg" },
+    { name: "Tharunikaa Srinath", grade: "7th Grade", caption: "Gained a clear study strategy and the confidence to walk into exams prepared.", driveId: "1bUy5QALDCsyimWUlRLNhyI9PBskAKJlC", src: "https://res.cloudinary.com/twteccae/video/upload/c_limit,w_1280,vc_h264,q_auto/v1795590249/tharunikaa-srinath.mp4",
+      poster: "https://res.cloudinary.com/twteccae/video/upload/c_limit,so_3,w_800/q_auto/v1795590249/tharunikaa-srinath.jpg" },
     { name: "Likhith Bhardwaj", grade: "7th Grade", caption: "", driveId: "12Gm1iosRzXLCiW6AN8-oDmj6vJzKKwDk", src: "https://res.cloudinary.com/twteccae/video/upload/c_limit,w_1280,vc_h264,q_auto/v1795588539/likhith-bhardwaj.mp4",
       poster: "https://res.cloudinary.com/twteccae/video/upload/c_limit,so_3,w_800/q_auto/v1795588539/likhith-bhardwaj.jpg" },
-    { name: "Karanam Pramod", grade: "", caption: "", driveId: "10DWjGnMLhJ1mg22O69KNDJhQimg297wB", src: "", poster: "" },
+    { name: "Karanam Pramod", grade: "", caption: "", driveId: "10DWjGnMLhJ1mg22O69KNDJhQimg297wB", src: "https://res.cloudinary.com/twteccae/video/upload/c_limit,w_1280,vc_h264,q_auto/v1795590265/karanam-pramod.mp4",
+      poster: "https://res.cloudinary.com/twteccae/video/upload/c_limit,so_3,w_800/q_auto/v1795590265/karanam-pramod.jpg" },
     { name: "Vibha Nair", grade: "", caption: "", driveId: "1uN6rvcvKioYZgrrVSWwrWCkWGidpziI9", src: "https://res.cloudinary.com/twteccae/video/upload/c_limit,w_1280,vc_h264,q_auto/v1795588549/vibha-nair.mp4",
       poster: "https://res.cloudinary.com/twteccae/video/upload/c_limit,so_3,w_800/q_auto/v1795588549/vibha-nair.jpg" },
   ],
