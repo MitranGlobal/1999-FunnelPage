@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Icon from "@/components/ui/Icon";
 import Logo from "@/components/ui/Logo";
-import { formatINR, nav, site } from "@/lib/content";
+import { nav, site } from "@/lib/content";
 
 /**
  * Top bar: logo, section links and the enrol button. It sits on the navy hero
@@ -52,7 +52,7 @@ export default function Nav() {
 
         <div className="flex items-center gap-2">
           <a href={site.registerUrl} data-cta={site.leadGate ? "" : undefined} className="btn-primary hidden min-h-[44px] px-5 text-[15px] sm:inline-flex">
-            Enrol – {formatINR(site.price)}
+            Enrol now
           </a>
           <button
             type="button"
@@ -88,7 +88,7 @@ export default function Nav() {
               ))}
               <li className="py-4">
                 <a href={site.registerUrl} data-cta={site.leadGate ? "" : undefined} onClick={() => setOpen(false)} className="btn-primary w-full">
-                  Enrol now – {formatINR(site.price)}
+                  Enrol now
                 </a>
               </li>
             </ul>

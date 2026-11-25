@@ -25,9 +25,20 @@ export default function Testimonials() {
     setIndex(n);
   };
 
-  // Keep the active name tab in view on narrow screens.
+  // Keep the active name tab in view on narrow screens. Only the tab row
+  // scrolls sideways; the page itself never moves. Skipped on first render.
+  const tabRow = useRef<HTMLDivElement>(null);
+  const firstRender = useRef(true);
   useEffect(() => {
-    tabs.current[index]?.scrollIntoView({ block: "nearest", inline: "center", behavior: reduced ? "auto" : "smooth" });
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    const row = tabRow.current;
+    const tab = tabs.current[index];
+    if (!row || !tab) return;
+    const left = tab.offsetLeft - row.offsetLeft - (row.clientWidth - tab.clientWidth) / 2;
+    row.scrollTo({ left, behavior: reduced ? "auto" : "smooth" });
   }, [index, reduced]);
 
   return (
@@ -66,7 +77,7 @@ export default function Testimonials() {
           </div>
 
           <div className="mt-5 flex items-center gap-3">
-            <div className="flex flex-1 gap-2 overflow-x-auto pb-1 [scrollbar-width:none]" role="tablist" aria-label="Choose a testimonial">
+            <div ref={tabRow} className="relative flex flex-1 gap-2 overflow-x-auto pb-1 [scrollbar-width:none]" role="tablist" aria-label="Choose a testimonial">
               {items.map((it, i) => (
                 <button
                   key={it.name}

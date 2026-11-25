@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { formatINR, site } from "@/lib/content";
+import { site } from "@/lib/content";
 
 /**
  * Slim enrol bar pinned to the bottom of the screen once the visitor has
@@ -49,13 +49,13 @@ export default function StickyBar() {
         >
           <div className="container flex items-center justify-between gap-4 py-3">
             <div className="min-w-0">
-              <p className="hidden truncate text-sm text-ivory/70 sm:block">{site.fullName}</p>
-              <p className="font-bold">
-                <span className="text-xl text-gold">{formatINR(site.price)}</span>{" "}
-                <s className="text-sm font-medium text-ivory/50">{formatINR(site.was)}</s>
+              <p className="truncate font-bold">
+                <span className="sm:hidden">{site.name}</span>
+                <span className="hidden sm:inline">{site.fullName}</span>
               </p>
+              <p className="hidden truncate text-sm text-ivory/70 sm:block">One-to-one guidance for children aged 11–17</p>
             </div>
-            <a href={site.registerUrl} data-cta={site.leadGate ? "" : undefined} className="btn-primary min-h-[46px] px-5 sm:px-7">
+            <a href={site.registerUrl} data-cta={site.leadGate ? "" : undefined} className="btn-primary min-h-[46px] shrink-0 whitespace-nowrap px-5 sm:px-7">
               Enrol now
             </a>
           </div>
