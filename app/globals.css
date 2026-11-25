@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper font-sans text-body text-ink antialiased;
+    overflow-x: clip;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    @apply bg-gold/50 text-ink;
+  }
+  :focus-visible {
+    outline: 3px solid #d9a92a;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-[52px] items-center justify-center gap-2 rounded-lg px-5 py-2 text-center text-[14px] font-extrabold uppercase leading-snug tracking-[0.04em] sm:px-7 sm:text-[15px] sm:tracking-[0.06em] transition-[background-color,box-shadow,transform] duration-200 active:translate-y-px;
+  }
+  /* The one action colour on the page: gold, dark text. */
+  .btn-primary {
+    @apply btn bg-gold text-night shadow-[0_8px_24px_-10px_rgba(217,169,42,0.8)] hover:bg-gold-bright;
+  }
+  .btn-outline {
+    @apply btn border-2 border-night/80 text-night hover:bg-night hover:text-ivory;
+  }
+  .btn-outline-light {
+    @apply btn border-2 border-ivory/40 text-ivory hover:border-ivory hover:bg-ivory/10;
+  }
+
+  .section {
+    @apply py-16 sm:py-24;
+  }
+  .eyebrow {
+    @apply text-sm font-bold uppercase tracking-[0.14em] text-gold-text;
+  }
+  .eyebrow-light {
+    @apply text-sm font-bold uppercase tracking-[0.14em] text-gold;
+  }
+  .section-title {
+    @apply mt-3 font-display text-display-lg text-night;
+  }
+  .section-lead {
+    @apply mt-4 max-w-prose text-body-lg text-ink-soft;
+  }
+  /* Thin rule between list rows — used instead of cards. */
+  .rule-list > * + * {
+    @apply border-t border-paper-line;
+  }
+}
