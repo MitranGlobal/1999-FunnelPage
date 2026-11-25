@@ -126,11 +126,12 @@ export const experiences = {
   videoLabel: "Featured introduction · Vidyashankar Guru on Positivity Hub",
   studentsTitle: "Hear From Our Students",
   /**
-   * Student testimonial videos, played from Google Drive in the popup player.
-   * `driveId` is the long id in the Drive link (…/file/d/<driveId>/view).
-   * The files must stay shared as "Anyone with the link – Viewer".
-   * To host them elsewhere later (e.g. Cloudinary, like the VSL), set `src`
-   * to the .mp4 URL and it is used instead of Drive.
+   * Student testimonial videos, played in the popup player.
+   * `src` (+ `poster`): the video on Cloudinary, folder "Student Testimonials",
+   *   delivered as a 720p H.264 copy so it plays in every browser.
+   * `driveId`: the Google Drive original, used only when `src` is empty
+   *   (files over Cloudinary's 100 MB free-plan limit). Keep those Drive files
+   *   shared as "Anyone with the link – Viewer".
    */
   students: [
     {
@@ -138,30 +139,33 @@ export const experiences = {
       grade: "9th Grade",
       caption: "Gained clarity on her weak areas and the confidence to improve them.",
       driveId: "1hIXffXvh2pY1gl70UYlf28TP7wUVY3Eo",
-      src: "",
+      src: "https://res.cloudinary.com/twteccae/video/upload/c_limit,w_1280,vc_h264,q_auto/v1795588511/anshika-kumar.mp4",
+      poster: "https://res.cloudinary.com/twteccae/video/upload/c_limit,so_3,w_800/q_auto/v1795588511/anshika-kumar.jpg",
     },
     {
       name: "Satvik",
       grade: "7th Grade",
       caption: "Mastered time management and the confidence to handle exam pressure.",
       driveId: "10nAMQwABs6OLEhLBKUxUgqb7ji9c_ETd",
-      src: "",
+      src: "", poster: "",
     },
     {
       name: "Senthilvel Vinayak",
       grade: "10th Grade",
       caption: "Developed better study habits and the confidence to stay consistent.",
       driveId: "1RprF7p6v4P40IG7GKaUV2rsqV09KZgi5",
-      src: "",
+      src: "", poster: "",
     },
   ],
   moreTitle: "More student stories",
   more: [
-    { name: "Amogh Chivukula", grade: "8th Grade", caption: "Built stronger concepts and the confidence to tackle challenging questions.", driveId: "129JGPWicsYnQtDpwBXzx4d2colFpnN8u", src: "" },
-    { name: "Tharunikaa Srinath", grade: "7th Grade", caption: "Gained a clear study strategy and the confidence to walk into exams prepared.", driveId: "1bUy5QALDCsyimWUlRLNhyI9PBskAKJlC", src: "" },
-    { name: "Likhith Bhardwaj", grade: "7th Grade", caption: "", driveId: "12Gm1iosRzXLCiW6AN8-oDmj6vJzKKwDk", src: "" },
-    { name: "Karanam Pramod", grade: "", caption: "", driveId: "10DWjGnMLhJ1mg22O69KNDJhQimg297wB", src: "" },
-    { name: "Vibha Nair", grade: "", caption: "", driveId: "1uN6rvcvKioYZgrrVSWwrWCkWGidpziI9", src: "" },
+    { name: "Amogh Chivukula", grade: "8th Grade", caption: "Built stronger concepts and the confidence to tackle challenging questions.", driveId: "129JGPWicsYnQtDpwBXzx4d2colFpnN8u", src: "", poster: "" },
+    { name: "Tharunikaa Srinath", grade: "7th Grade", caption: "Gained a clear study strategy and the confidence to walk into exams prepared.", driveId: "1bUy5QALDCsyimWUlRLNhyI9PBskAKJlC", src: "", poster: "" },
+    { name: "Likhith Bhardwaj", grade: "7th Grade", caption: "", driveId: "12Gm1iosRzXLCiW6AN8-oDmj6vJzKKwDk", src: "https://res.cloudinary.com/twteccae/video/upload/c_limit,w_1280,vc_h264,q_auto/v1795588539/likhith-bhardwaj.mp4",
+      poster: "https://res.cloudinary.com/twteccae/video/upload/c_limit,so_3,w_800/q_auto/v1795588539/likhith-bhardwaj.jpg" },
+    { name: "Karanam Pramod", grade: "", caption: "", driveId: "10DWjGnMLhJ1mg22O69KNDJhQimg297wB", src: "", poster: "" },
+    { name: "Vibha Nair", grade: "", caption: "", driveId: "1uN6rvcvKioYZgrrVSWwrWCkWGidpziI9", src: "https://res.cloudinary.com/twteccae/video/upload/c_limit,w_1280,vc_h264,q_auto/v1795588549/vibha-nair.mp4",
+      poster: "https://res.cloudinary.com/twteccae/video/upload/c_limit,so_3,w_800/q_auto/v1795588549/vibha-nair.jpg" },
   ],
   cta: "Start your teen’s growth journey",
 };

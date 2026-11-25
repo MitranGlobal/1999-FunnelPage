@@ -4,12 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/ui/Icon";
 import { useLightbox } from "@/store/lightbox";
 
-type Student = { name: string; grade: string; caption: string; driveId: string; src: string };
+type Student = { name: string; grade: string; caption: string; driveId: string; src: string; poster: string };
 
 /**
  * A student's testimonial video: still frame with a play button, then name,
  * grade and a one-line summary. Tapping it opens the popup player. The still
- * comes from Google Drive; if Drive can't serve it, a plain navy frame with
+ * comes from Cloudinary (or Drive for Drive-hosted videos); if it can't load, a plain navy frame with
  * the student's initials is shown instead.
  */
 export default function StudentVideo({ student, size = "lg" }: { student: Student; size?: "lg" | "sm" }) {
@@ -28,7 +28,7 @@ export default function StudentVideo({ student, size = "lg" }: { student: Studen
     .slice(0, 2)
     .join("");
 
-  const play = () => (student.src ? open({ kind: "video", src: student.src, title }) : open({ kind: "drive", id: student.driveId, title }));
+  const play = () => (student.src ? open({ kind: "video", src: student.src, title, poster: student.poster || undefined }) : open({ kind: "drive", id: student.driveId, title }));
 
   return (
     <div>
@@ -37,7 +37,7 @@ export default function StudentVideo({ student, size = "lg" }: { student: Studen
           // eslint-disable-next-line @next/next/no-img-element
           <img
             ref={img}
-            src={`https://drive.google.com/thumbnail?id=${student.driveId}&sz=w800`}
+            src={student.poster || `https://drive.google.com/thumbnail?id=${student.driveId}&sz=w800`}
             alt=""
             loading="lazy"
             referrerPolicy="no-referrer"
