@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "@fontsource/young-serif/400.css";
 import "@fontsource-variable/figtree";
 import "./globals.css";
@@ -23,7 +24,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-IN">
-      <body>{children}</body>
+      <body>
+        {children}
+        {/* Vercel Web Analytics: records a page view for every visit (Vercel dashboard → Analytics). */}
+        <Analytics />
+      </body>
     </html>
   );
 }
