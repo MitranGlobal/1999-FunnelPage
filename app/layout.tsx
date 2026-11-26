@@ -45,16 +45,6 @@ fbq('track', 'PageView');
             `,
           }}
         />
-        <noscript>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1187921803561142&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
         {/* End Meta Pixel Code */}
       </head>
       <body>{children}</body>
