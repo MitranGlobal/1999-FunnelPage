@@ -39,15 +39,22 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq.disablePushState = true;
-fbq('init', '1187921803561142');
+fbq('init', '1170595592190441');
 fbq('track', 'PageView');
 }
             `,
           }}
         />
-        {/* End Meta Pixel Code */}
       </head>
-      <body>{children}</body>
+      <body>
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1170595592190441&ev=PageView&noscript=1" />`,
+          }}
+        />
+        {/* End Meta Pixel Code */}
+        {children}
+      </body>
     </html>
   );
 }
