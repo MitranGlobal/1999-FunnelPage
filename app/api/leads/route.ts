@@ -4,11 +4,17 @@ import { validateLead } from "@/lib/lead";
 
 /**
  * Receives the sign-up popup's details, checks them again, and submits them
- * to the ClarityConvert "Contact Form" (see lib/clarity.ts).
+ * to the ClarityConvert "Contact Form" (see lib/clarity.ts) and to a Pabbly
  */
 
 const MAX_BODY_BYTES = 4_000;
 const FORWARD_TIMEOUT_MS = 10_000;
+const PABBLY_TIMEOUT_MS = 8_000;
+
+/** Pabbly Connect "Catch Webhook" URL. Set PABBLY_WEBHOOK_URL in Vercel to override it. */
+const PABBLY_WEBHOOK_URL =
+  process.env.PABBLY_WEBHOOK_URL ||
+  "https://connect.pabbly.com/webhook-listener/webhook/IjU3NjMwNTZlMDYzZTA0Mzc1MjY5NTUzNyI_3D_pc/IjU3NjcwNTZhMDYzNjA0MzE1MjY0NTUzMjUxMzQi_pc";
 
 /** Accept only plain http(s) URLs, trimmed, for the attribution fields. */
 function safeUrl(value: unknown, mustBeHost?: string): string | undefined {
@@ -20,6 +26,24 @@ function safeUrl(value: unknown, mustBeHost?: string): string | undefined {
     return u.toString();
   } catch {
     return undefined;
+  }
+}
+
+/**
+ * visitor from reaching checkout.
+ */
+async function sendToPabbly(data: Record<string, string>) {
+  if (!PABBLY_WEBHOOK_URL) return;
+  try {
+    const res = await fetch(PABBLY_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+      signal: AbortSignal.timeout(PABBLY_TIMEOUT_MS),
+    });
+    if (!res.ok) console.error(`[leads] Pabbly rejected a sign-up (HTTP ${res.status})`);
+  } catch (err) {
+    console.error("[leads] Could not reach Pabbly:", err instanceof Error ? err.message : err);
   }
 }
 
@@ -87,6 +111,18 @@ export async function POST(req: Request) {
     ...(idempotencyKey ? { idempotencyKey } : {}),
   };
 
+  // Send the lead to Pabbly (Google Sheet) at the same time as ClarityConvert.
+  const pabbly = sendToPabbly({
+    submittedAt: new Date().toISOString(),
+    childName: lead.childName,
+    parentName: lead.parentName,
+    mobile: lead.mobile,
+    email: lead.email,
+    landingPage: landingPage ?? "",
+    referrer: referrer ?? "",
+    idempotencyKey: idempotencyKey ?? "",
+  });
+
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), FORWARD_TIMEOUT_MS);
   try {
@@ -108,5 +144,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "We couldn’t save your details. Please try again." }, { status: 502 });
   } finally {
     clearTimeout(timer);
+    // Wait for Pabbly so Vercel doesn't cut the request off early.
+    await pabbly;
   }
 }
