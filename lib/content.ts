@@ -22,6 +22,8 @@ export const site = {
    */
   leadGate: true,
   price: 1999,
+  /** The line shown under every button on the page. */
+  ctaNote: { text: "One time Payment : INR 1999/-", highlight: "Limited Offer" },
   was: 4999,
   /** The VSL, taken from the Positivity Hub site. */
   vsl: {

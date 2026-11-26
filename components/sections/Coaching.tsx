@@ -47,7 +47,7 @@ export default function Coaching() {
         </div>
 
         <Reveal className="mt-10">
-          <Cta label={coaching.cta} note />
+          <Cta label={coaching.cta} />
         </Reveal>
       </div>
     </section>

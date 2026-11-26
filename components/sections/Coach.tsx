@@ -45,7 +45,7 @@ export default function Coach() {
             </div>
 
             <div className="mt-8">
-              {coach.storyVideo ? <CoachStoryButton /> : <Cta label={coach.cta} href="#video" variant="outline-light" />}
+              {coach.storyVideo ? <CoachStoryButton /> : <Cta label={coach.cta} href="#video" variant="outline-light" noteTone="light" />}
             </div>
           </Reveal>
         </div>

@@ -17,7 +17,7 @@ export default function FinalCta() {
           <p className="font-display text-display-md text-gold">{finalCta.sub}</p>
           <p className="mt-5 text-sm font-bold uppercase tracking-[0.14em] text-ivory/70">{finalCta.priceLabel}</p>
           <PriceTag size="lg" tone="light" save className="mt-2 justify-center" />
-          <Cta label={finalCta.cta} align="center" className="mt-7" note="One-time payment · Sessions conducted online" noteTone="light" />
+          <Cta label={finalCta.cta} align="center" className="mt-7" noteTone="light" />
         </div>
 
         <p className="mt-12 italic text-ivory/60">{finalCta.tagline}</p>

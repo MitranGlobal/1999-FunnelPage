@@ -45,7 +45,7 @@ export default function Hero() {
               ))}
             </ul>
 
-            <Cta label={hero.cta} note noteTone="light" className="mt-8" />
+            <Cta label={hero.cta} noteTone="light" className="mt-8" />
           </div>
         </div>
 

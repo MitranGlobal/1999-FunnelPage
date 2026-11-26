@@ -40,7 +40,7 @@ export default function Challenge() {
 
         <Reveal className="mt-14 rounded-xl bg-paper-deep px-6 py-8 sm:px-10 sm:py-10">
           <p className="max-w-3xl font-display text-display-md text-night">{challenge.closing}</p>
-          <Cta label={challenge.cta} note className="mt-7" />
+          <Cta label={challenge.cta} className="mt-7" />
         </Reveal>
       </div>
     </section>

@@ -41,7 +41,7 @@ export default function Included() {
         </Reveal>
 
         <Reveal className="mt-10">
-          <Cta label={included.cta} priceInButton note align="center" />
+          <Cta label={included.cta} priceInButton align="center" />
         </Reveal>
       </div>
     </section>

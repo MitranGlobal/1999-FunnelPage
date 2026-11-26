@@ -42,7 +42,7 @@ export default function Experiences() {
         </Reveal>
 
         <Reveal className="mt-14">
-          <Cta label={experiences.cta} note align="center" />
+          <Cta label={experiences.cta} align="center" />
         </Reveal>
       </div>
     </section>
